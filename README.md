@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Steps
 
-1. Create Angular project [ng new project-name]
-2. Generate Modules & Components [ng g c componen-name, ng g m module-name]
-3. For styling add bootstrap [npm install bootstrap@5.1.3]
+1. Create Angular project [`ng new project-name`]
+2. Generate Modules & Components [`ng g c componen-name, ng g m module-name`]
+3. For styling add bootstrap [`npm install bootstrap@5.1.3`]
 4. Import bootstrap in style.css file [@import '../node_modules/bootstrap/dist/css/bootstrap.min.css']

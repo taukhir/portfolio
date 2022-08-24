@@ -22,6 +22,15 @@ import { ProjectsComponent } from './components/projects/projects.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    AboutComponent,
+    SkillsComponent,
+    ContactComponent,
+    IntroComponent,
+    EducationComponent,
+    ExperienceComponent,
+    ProjectsComponent
   ]
 })
 export class ProfileModule { }

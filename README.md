@@ -32,3 +32,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 2. Generate Modules & Components [`ng g c componen-name, ng g m module-name`]
 3. For styling add bootstrap [`npm install bootstrap@5.1.3`]
 4. Import bootstrap in style.css file [@import '../node_modules/bootstrap/dist/css/bootstrap.min.css']
+5. Along with bootstrap we need to add jQuery & popper.js as well.
+    1. npm install jquery --save
+    2. npm install popper.js --save
+6. Adding AOS styling library [Animate on scroll library]
+    1. npm install aos --save
+    2. import in main.css or use link tag in index.html or import in angular.json
+7. add now-ui-kit which is a responsive ui for bootstrap

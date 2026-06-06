@@ -292,17 +292,21 @@ copyEmailButton.addEventListener("click", async () => {
   }, 2200);
 });
 
+const revealElement = (element) => {
+  element.classList.remove("pending");
+  element.classList.add("visible");
+};
+
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.remove("pending");
-        entry.target.classList.add("visible");
+        revealElement(entry.target);
         revealObserver.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.12 }
+  { threshold: 0.01, rootMargin: "0px 0px -5% 0px" }
 );
 
 document.querySelectorAll(".reveal:not(.visible)").forEach((element, index) => {
@@ -314,6 +318,10 @@ document.querySelectorAll(".reveal:not(.visible)").forEach((element, index) => {
     element.classList.add("visible");
   }
 });
+
+window.setTimeout(() => {
+  document.querySelectorAll(".reveal.pending").forEach(revealElement);
+}, 2500);
 
 const sectionObserver = new IntersectionObserver(
   (entries) => {

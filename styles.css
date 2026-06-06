@@ -1168,6 +1168,20 @@ button:focus-visible,
   transform: scale(1.025);
 }
 
+.architecture-source {
+  display: inline-flex;
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.architecture-source:hover {
+  color: var(--accent);
+}
+
 .project-details {
   padding: clamp(40px, 5vw, 72px);
 }

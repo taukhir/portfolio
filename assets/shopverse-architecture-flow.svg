@@ -1,0 +1,141 @@
+<svg width="1280" height="780" viewBox="0 0 1280 780" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="780" fill="#F8FAFC"/>
+  <text x="640" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#111827">Shopverse Microservices Architecture</text>
+  <text x="640" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#4B5563">Gateway, Config Server, Eureka, JWT, Kafka choreography SAGA, observability, and storage</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2L10 6L2 10V2Z" fill="#334155"/>
+    </marker>
+    <marker id="eventArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2L10 6L2 10V2Z" fill="#D97706"/>
+    </marker>
+    <style>
+      .client { fill:#ECFEFF; stroke:#0891B2; stroke-width:2; rx:12; }
+      .core { fill:#EEF2FF; stroke:#6366F1; stroke-width:2; rx:12; }
+      .svc { fill:#F0FDF4; stroke:#22C55E; stroke-width:2; rx:12; }
+      .sec { fill:#FEF2F2; stroke:#EF4444; stroke-width:2; rx:12; }
+      .data { fill:#FFF7ED; stroke:#F97316; stroke-width:2; rx:12; }
+      .event { fill:#FFFBEB; stroke:#D97706; stroke-width:2; rx:12; }
+      .obs { fill:#F5F3FF; stroke:#8B5CF6; stroke-width:2; rx:12; }
+      .title { font-family:Arial, sans-serif; font-size:16px; font-weight:700; fill:#111827; }
+      .body { font-family:Arial, sans-serif; font-size:12px; fill:#374151; }
+      .small { font-family:Arial, sans-serif; font-size:11px; fill:#475569; }
+      .label { font-family:Arial, sans-serif; font-size:11px; font-weight:700; fill:#334155; }
+      .arrow { stroke:#334155; stroke-width:2.2; marker-end:url(#arrow); }
+      .dash { stroke:#64748B; stroke-width:2; stroke-dasharray:7 6; marker-end:url(#arrow); }
+      .eventLine { stroke:#D97706; stroke-width:2.5; marker-end:url(#eventArrow); }
+      .eventDash { stroke:#D97706; stroke-width:2.2; stroke-dasharray:7 6; marker-end:url(#eventArrow); }
+    </style>
+  </defs>
+
+  <rect x="44" y="142" width="154" height="90" class="client"/>
+  <text x="121" y="176" text-anchor="middle" class="title">Client</text>
+  <text x="74" y="204" class="body">Browser / Postman</text>
+  <text x="74" y="222" class="body">Bearer token</text>
+
+  <rect x="260" y="122" width="184" height="130" class="core"/>
+  <text x="352" y="158" text-anchor="middle" class="title">API Gateway</text>
+  <text x="290" y="188" class="body">Public entry point</text>
+  <text x="290" y="208" class="body">Path-based routing</text>
+  <text x="290" y="228" class="body">Trace propagation</text>
+
+  <rect x="520" y="104" width="176" height="96" class="core"/>
+  <text x="608" y="138" text-anchor="middle" class="title">Config Server</text>
+  <text x="550" y="168" class="body">Central YAML config</text>
+  <text x="550" y="188" class="body">cloud-configs/</text>
+
+  <rect x="520" y="232" width="176" height="96" class="core"/>
+  <text x="608" y="266" text-anchor="middle" class="title">Eureka</text>
+  <text x="550" y="296" class="body">Service registry</text>
+  <text x="550" y="316" class="body">Discovery by name</text>
+
+  <rect x="780" y="96" width="188" height="102" class="sec"/>
+  <text x="874" y="130" text-anchor="middle" class="title">Auth Service</text>
+  <text x="810" y="160" class="body">Login</text>
+  <text x="810" y="180" class="body">JWT signing + JWKS</text>
+
+  <rect x="1036" y="96" width="188" height="102" class="svc"/>
+  <text x="1130" y="130" text-anchor="middle" class="title">User Service</text>
+  <text x="1066" y="160" class="body">Users / roles</text>
+  <text x="1066" y="180" class="body">Permissions</text>
+
+  <rect x="780" y="260" width="188" height="110" class="svc"/>
+  <text x="874" y="294" text-anchor="middle" class="title">Order Service</text>
+  <text x="810" y="324" class="body">Checkout API</text>
+  <text x="810" y="344" class="body">Publishes order.created</text>
+  <text x="810" y="364" class="body">Consumes final outcome</text>
+
+  <rect x="1036" y="260" width="188" height="110" class="svc"/>
+  <text x="1130" y="294" text-anchor="middle" class="title">Inventory Service</text>
+  <text x="1066" y="324" class="body">Reserves stock</text>
+  <text x="1066" y="344" class="body">Publishes reserved/failed</text>
+  <text x="1066" y="364" class="body">Compensates on failure</text>
+
+  <rect x="908" y="430" width="188" height="110" class="svc"/>
+  <text x="1002" y="464" text-anchor="middle" class="title">Payment Service</text>
+  <text x="938" y="494" class="body">Processes payment</text>
+  <text x="938" y="514" class="body">Publishes completed/failed</text>
+
+  <rect x="548" y="410" width="196" height="122" class="event"/>
+  <text x="646" y="444" text-anchor="middle" class="title">Kafka</text>
+  <text x="578" y="474" class="body">shopverse.order.created</text>
+  <text x="578" y="494" class="body">inventory.reserved / failed</text>
+  <text x="578" y="514" class="body">payment.completed / failed</text>
+
+  <rect x="1044" y="598" width="160" height="72" class="data"/>
+  <text x="1124" y="630" text-anchor="middle" class="title">MySQL</text>
+  <text x="1084" y="652" class="body">User data</text>
+
+  <rect x="246" y="566" width="420" height="124" class="obs"/>
+  <text x="456" y="600" text-anchor="middle" class="title">Observability Stack</text>
+  <text x="278" y="632" class="body">Prometheus scrapes /actuator/prometheus</text>
+  <text x="278" y="652" class="body">Loki + Promtail collect centralized logs</text>
+  <text x="278" y="672" class="body">Zipkin stores distributed traces</text>
+
+  <path d="M198 187H260" class="arrow"/>
+  <text x="212" y="176" class="label">HTTP</text>
+
+  <path d="M444 154C474 140 492 134 520 134" class="dash"/>
+  <text x="456" y="128" class="label">config import</text>
+  <path d="M444 212C474 246 492 280 520 280" class="dash"/>
+  <text x="462" y="270" class="label">service lookup</text>
+
+  <path d="M444 162C560 118 670 146 780 146" class="arrow"/>
+  <text x="590" y="128" class="label">/auth/**</text>
+  <path d="M444 180C616 130 866 146 1036 146" class="arrow"/>
+  <text x="705" y="116" class="label">/api/v1/users/**</text>
+  <path d="M444 226C560 284 664 315 780 315" class="arrow"/>
+  <text x="575" y="304" class="label">/api/v1/orders/**</text>
+
+  <path d="M874 198C930 226 1000 240 1066 260" class="dash"/>
+  <text x="952" y="230" class="label">JWKS validation</text>
+  <path d="M874 198C960 126 1030 126 1036 146" class="dash"/>
+  <text x="970" y="108" class="label">user lookup</text>
+  <path d="M1130 198V598" class="arrow"/>
+  <text x="1148" y="398" class="label">JPA</text>
+
+  <path d="M780 342C708 362 680 386 664 410" class="eventLine"/>
+  <text x="682" y="362" class="label">order.created</text>
+  <path d="M744 454C860 394 958 350 1036 326" class="eventLine"/>
+  <text x="810" y="405" class="label">consume order.created</text>
+  <path d="M1036 344C922 372 810 414 744 462" class="eventLine"/>
+  <text x="858" y="438" class="label">inventory reserved/failed</text>
+  <path d="M744 500C806 502 852 500 908 494" class="eventLine"/>
+  <text x="778" y="490" class="label">payment step</text>
+  <path d="M908 516C838 550 754 546 666 532" class="eventLine"/>
+  <text x="740" y="566" class="label">payment completed/failed</text>
+  <path d="M548 432C450 386 394 316 352 252" class="eventDash"/>
+  <text x="412" y="374" class="label">logs carry traceId</text>
+  <path d="M548 520C472 536 404 548 356 566" class="dash"/>
+
+  <path d="M352 252V566" class="dash"/>
+  <path d="M608 328V566" class="dash"/>
+  <path d="M874 370C794 462 706 548 666 600" class="dash"/>
+  <path d="M1130 370C1040 474 788 570 666 626" class="dash"/>
+  <path d="M1002 540C912 602 760 642 666 650" class="dash"/>
+  <path d="M874 198C796 330 716 512 640 566" class="dash"/>
+  <text x="478" y="552" class="label">logs + metrics + traces</text>
+
+  <text x="640" y="738" text-anchor="middle" class="small">HTTP traffic enters through Gateway. Runtime config comes from Config Server. Service discovery uses Eureka. Checkout SAGA events flow through Kafka. Logs, metrics, and traces flow to the observability stack.</text>
+</svg>

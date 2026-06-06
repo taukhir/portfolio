@@ -1000,27 +1000,105 @@ button:focus-visible,
   margin-top: 24px;
 }
 
+.experience-heading {
+  display: grid;
+  align-items: end;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(50px, 9vw, 130px);
+}
+
+.experience-intro {
+  max-width: 500px;
+  margin: 0 0 7px;
+  color: #a7afb8;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.career-summary {
+  display: grid;
+  margin-top: 62px;
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.career-summary > div {
+  min-height: 145px;
+  padding: 25px 28px;
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.career-summary strong {
+  display: block;
+  color: var(--white);
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 570;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.career-summary strong span {
+  margin-left: 3px;
+  color: var(--accent);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 0.25em;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.career-summary p {
+  margin: 22px 0 0;
+  color: #858f99;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
 .timeline {
-  margin-top: 80px;
+  margin-top: 70px;
   border-top: 1px solid var(--line-dark);
 }
 
 .timeline-item {
+  position: relative;
   display: grid;
-  padding: 46px 0 52px;
+  padding: 52px 0 58px;
   border-bottom: 1px solid var(--line-dark);
-  grid-template-columns: 0.37fr 0.63fr;
-  gap: 60px;
+  grid-template-columns: 0.28fr 0.72fr;
+  gap: clamp(40px, 7vw, 100px);
+}
+
+.timeline-item::before {
+  position: absolute;
+  top: 58px;
+  left: -6px;
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  content: "";
 }
 
 .timeline-meta {
   display: flex;
+  padding-left: 22px;
   flex-direction: column;
   color: #8a949f;
   font-family: "Cascadia Code", Consolas, monospace;
   font-size: 10px;
-  gap: 8px;
+  gap: 9px;
   letter-spacing: 0.04em;
+}
+
+.timeline-index {
+  margin-bottom: 13px;
+  color: #626c76;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .timeline-date {
@@ -1034,6 +1112,16 @@ button:focus-visible,
   gap: 30px;
 }
 
+.company-name {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--accent-soft);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
 .role-line h3 {
   margin: 0;
   font-size: clamp(24px, 3vw, 38px);
@@ -1041,32 +1129,69 @@ button:focus-visible,
   letter-spacing: -0.04em;
 }
 
-.role-line span {
+.role-line .role-domain {
+  padding: 7px 9px;
   color: #939ca6;
-  font-size: 13px;
+  border: 1px solid var(--line-dark);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 8px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
-.timeline-content > p {
+.timeline-content > .role-summary {
   max-width: 750px;
-  margin: 17px 0 25px;
+  margin: 19px 0 28px;
   color: #a7afb8;
   font-size: 16px;
+  line-height: 1.7;
 }
 
 .impact-list {
-  display: flex;
+  display: grid;
   margin: 0;
   padding: 0;
-  gap: 10px;
-  flex-wrap: wrap;
+  border-top: 1px solid var(--line-dark);
   list-style: none;
 }
 
 .impact-list li {
-  padding: 8px 11px;
-  color: #bcc3ca;
-  border: 1px solid var(--line-dark);
-  font-size: 11px;
+  display: grid;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line-dark);
+  grid-template-columns: 125px 1fr;
+  gap: 22px;
+}
+
+.impact-list strong {
+  color: var(--accent-soft);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.impact-list span {
+  color: #c4cad0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.role-stack {
+  display: flex;
+  margin-top: 24px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.role-stack span {
+  padding: 6px 9px;
+  color: #7f8993;
+  background: rgba(255, 255, 255, 0.035);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 8px;
+  letter-spacing: 0.04em;
 }
 
 .section-heading {
@@ -1487,17 +1612,69 @@ button:focus-visible,
 
 .skills-heading {
   display: grid;
-  grid-template-columns: 0.35fr 0.65fr;
-  gap: 70px;
+  align-items: end;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(50px, 9vw, 125px);
 }
 
 .skills-heading .section-title {
   max-width: 760px;
+  margin-top: 25px;
+}
+
+.skills-intro {
+  max-width: 490px;
+  margin: 0 0 7px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.lead-capability-strip {
+  display: grid;
+  margin-top: 60px;
+  color: var(--white);
+  background: var(--ink);
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.lead-capability-strip > div {
+  min-height: 165px;
+  padding: 26px;
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.lead-capability-strip span,
+.skill-level {
+  color: var(--accent-soft);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 8px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.lead-capability-strip strong {
+  display: block;
+  margin-top: 38px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.lead-capability-strip p {
+  margin: 9px 0 0;
+  color: #929ca6;
+  font-size: 11px;
+  line-height: 1.5;
 }
 
 .skill-groups {
   display: grid;
-  margin-top: 80px;
+  margin-top: 36px;
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
   grid-template-columns: repeat(2, 1fr);
@@ -1505,11 +1682,21 @@ button:focus-visible,
 
 .skill-group {
   position: relative;
-  min-height: 220px;
+  min-height: 330px;
   padding: 32px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   transition: color 250ms ease, background 250ms ease;
+}
+
+.skill-group-lead::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 3px;
+  background: var(--accent);
+  content: "";
 }
 
 .skill-group:hover {
@@ -1517,9 +1704,15 @@ button:focus-visible,
   background: var(--ink);
 }
 
+.skill-level {
+  display: block;
+  margin-top: 34px;
+}
+
 .skill-group h3 {
-  margin: 45px 0 14px;
-  font-size: 24px;
+  max-width: 430px;
+  margin: 12px 0 14px;
+  font-size: 26px;
   font-weight: 600;
   letter-spacing: -0.035em;
 }
@@ -1529,6 +1722,7 @@ button:focus-visible,
   margin: 0;
   color: var(--muted);
   font-size: 14px;
+  line-height: 1.65;
 }
 
 .skill-marker {
@@ -1554,6 +1748,27 @@ button:focus-visible,
 
 .skill-group:hover p {
   color: #aab3bc;
+}
+
+.skill-tags {
+  display: flex;
+  margin-top: 25px;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.skill-tags span {
+  padding: 6px 8px;
+  color: #6e7780;
+  background: rgba(15, 20, 26, 0.045);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 8px;
+  transition: color 250ms ease, background 250ms ease;
+}
+
+.skill-group:hover .skill-tags span {
+  color: #aab3bc;
+  background: rgba(255, 255, 255, 0.055);
 }
 
 .playbook {
@@ -2025,6 +2240,14 @@ button:focus-visible,
     max-width: 650px;
   }
 
+  .skills-intro {
+    max-width: 650px;
+  }
+
+  .lead-capability-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .project-card {
     grid-template-columns: 1fr;
   }
@@ -2263,6 +2486,20 @@ button:focus-visible,
     max-width: none;
   }
 
+  .experience-heading {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .experience-intro {
+    max-width: 650px;
+  }
+
+  .career-summary {
+    margin-top: 45px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .timeline {
     margin-top: 55px;
   }
@@ -2274,14 +2511,26 @@ button:focus-visible,
   }
 
   .timeline-meta {
+    padding-left: 18px;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .timeline-index {
+    width: 100%;
+    margin-bottom: 2px;
   }
 
   .role-line {
     align-items: flex-start;
     flex-direction: column;
-    gap: 4px;
+    gap: 14px;
+  }
+
+  .impact-list li {
+    grid-template-columns: 110px 1fr;
   }
 
   .project-card {
@@ -2340,8 +2589,25 @@ button:focus-visible,
   }
 
   .skill-group {
-    min-height: 200px;
+    min-height: 0;
     padding: 26px;
+  }
+
+  .lead-capability-strip {
+    margin-top: 45px;
+  }
+
+  .lead-capability-strip > div {
+    min-height: 145px;
+    padding: 22px;
+  }
+
+  .lead-capability-strip strong {
+    margin-top: 28px;
+  }
+
+  .skill-level {
+    margin-top: 27px;
   }
 
   .playbook {
@@ -2427,6 +2693,14 @@ button:focus-visible,
 
   .metric-card {
     min-height: 150px;
+  }
+
+  .lead-capability-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .lead-capability-strip > div {
+    min-height: 125px;
   }
 }
 
@@ -2539,6 +2813,10 @@ button:focus-visible,
   .recruiter-snapshot,
   .playbook-shell {
     break-inside: avoid;
+  }
+
+  .career-summary {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .metrics,

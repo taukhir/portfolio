@@ -58,7 +58,9 @@ portfolio/
 |-- .nojekyll
 |-- favicon.svg
 |-- index.html
+|-- robots.txt
 |-- script.js
+|-- sitemap.xml
 |-- styles.css
 `-- README.md
 ```

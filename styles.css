@@ -980,6 +980,66 @@ button:focus-visible,
   font-size: 12px;
 }
 
+.hire-focus {
+  display: grid;
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  grid-template-columns: 0.34fr 0.66fr;
+}
+
+.hire-focus-heading {
+  padding: 30px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.hire-focus-heading span,
+.hire-focus-grid article span,
+.case-study-strip article span {
+  display: block;
+  color: var(--accent);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hire-focus-heading strong {
+  display: block;
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 610;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.hire-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.hire-focus-grid article {
+  min-height: 210px;
+  padding: 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.hire-focus-grid h3 {
+  margin: 48px 0 12px;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+
+.hire-focus-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
 .experience {
   max-width: none;
   color: var(--white);
@@ -1227,6 +1287,30 @@ button:focus-visible,
 
 .portfolio-project {
   margin-top: 30px;
+}
+
+.case-study-strip {
+  display: grid;
+  margin-top: 30px;
+  color: var(--white);
+  background: var(--ink);
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.case-study-strip article {
+  min-height: 190px;
+  padding: 26px;
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.case-study-strip p {
+  margin: 46px 0 0;
+  color: #b4bdc6;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .portfolio-project .project-details {
@@ -2281,6 +2365,18 @@ button:focus-visible,
     grid-template-columns: 1fr;
   }
 
+  .hire-focus {
+    grid-template-columns: 1fr;
+  }
+
+  .hire-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .playbook-shell {
     grid-template-columns: 1fr;
   }
@@ -2480,6 +2576,18 @@ button:focus-visible,
 
   .recruiter-snapshot dl {
     grid-template-columns: 1fr;
+  }
+
+  .hire-focus-heading,
+  .hire-focus-grid article,
+  .case-study-strip article {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+
+  .hire-focus-grid h3,
+  .case-study-strip p {
+    margin-top: 26px;
   }
 
   .experience > * {
@@ -2693,6 +2801,10 @@ button:focus-visible,
 
   .metric-card {
     min-height: 150px;
+  }
+
+  .case-study-strip {
+    grid-template-columns: 1fr;
   }
 
   .lead-capability-strip {

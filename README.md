@@ -12,6 +12,7 @@ The site presents:
 - Professional summary and engineering impact
 - Career experience across Nagarro, HCLTech, Morgan Stanley, Optum, and Tecnotree
 - ShopVerse microservices architecture and project details
+- ShopVerse Web Angular frontend project details
 - Backend, cloud, data, observability, quality, and leadership skills
 - Engineering principles, working style, resume, and contact links
 
@@ -44,6 +45,14 @@ required. GitHub Pages serves the repository files directly over HTTPS.
 - SVG
 - GitHub Actions
 - GitHub Pages
+
+## Featured Portfolio Projects
+
+| Project | What the portfolio shows |
+| --- | --- |
+| [ShopVerse](https://github.com/taukhir/shopverse) | Java/Spring microservices architecture, Kafka choreography SAGA, security, observability, CI, Docker, and documented trade-offs |
+| [ShopVerse Web](https://github.com/taukhir/shopverse/tree/master/shopverse-web) | Angular 22 commerce client with storefront, catalog, cart, checkout, orders, account, auth guards, HTTP interceptor, and admin operations screens |
+| Engineering Portfolio | This static GitHub Pages site, including responsive layout, accessibility, SEO, theme controls, recruiter narrative, and project storytelling |
 
 ## Repository Structure
 
@@ -161,6 +170,7 @@ Before publishing:
 
 - [GitHub profile repository](https://github.com/taukhir/taukhir)
 - [ShopVerse microservices platform](https://github.com/taukhir/shopverse)
+- [ShopVerse Web Angular client](https://github.com/taukhir/shopverse/tree/master/shopverse-web)
 
 ## Contact
 

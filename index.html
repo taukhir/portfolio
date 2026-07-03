@@ -663,6 +663,76 @@
         </article>
       </div>
 
+      <section class="deep-dive reveal" aria-labelledby="shopverse-deep-dive-title">
+        <div class="deep-dive-heading">
+          <div>
+            <span class="deep-dive-kicker">ShopVerse deep dive</span>
+            <h3 id="shopverse-deep-dive-title">The architecture proof behind the portfolio.</h3>
+          </div>
+          <p>
+            A reviewer can trace one checkout from API request to Kafka events,
+            service-owned state, compensation paths, observability, and CI gates.
+          </p>
+        </div>
+
+        <div class="deep-dive-grid">
+          <article class="deep-dive-card deep-dive-card-wide">
+            <span class="deep-card-label">01 / API flow</span>
+            <h4>Idempotent checkout through the gateway</h4>
+            <pre><code>POST /api/v1/orders/checkout
+Authorization: Bearer &lt;jwt&gt;
+Idempotency-Key: checkout-user-42-cart-9001
+X-Correlation-Id: demo-checkout-9001
+
+{
+  "items": [{ "productId": 101, "quantity": 1 }]
+}</code></pre>
+          </article>
+
+          <article class="deep-dive-card">
+            <span class="deep-card-label">02 / Reliability</span>
+            <h4>Failure paths are modeled, not hidden.</h4>
+            <ul>
+              <li>Order state and outbox commit together</li>
+              <li>Inventory/payment publish async outcomes</li>
+              <li>DLT persistence and replay audit keep recovery inspectable</li>
+            </ul>
+          </article>
+
+          <article class="deep-dive-card">
+            <span class="deep-card-label">03 / Observability</span>
+            <h4>Every request has a trail.</h4>
+            <div class="signal-list">
+              <span>Correlation ID</span>
+              <span>Structured logs</span>
+              <span>Prometheus metrics</span>
+              <span>Zipkin traces</span>
+              <span>Grafana dashboards</span>
+            </div>
+          </article>
+
+          <article class="deep-dive-card">
+            <span class="deep-card-label">04 / CI proof</span>
+            <h4>Validation is layered.</h4>
+            <ol>
+              <li>Config and Compose model checks</li>
+              <li>Unit and integration tests</li>
+              <li>Docker image validation</li>
+              <li>Checkout SAGA smoke gate</li>
+            </ol>
+          </article>
+
+          <article class="deep-dive-card deep-dive-card-accent">
+            <span class="deep-card-label">05 / Next improvements</span>
+            <h4>How I would keep evolving it.</h4>
+            <p>
+              Add contract tests, schema registry, richer Grafana dashboards,
+              deployment manifests, and load-test reports for checkout capacity.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <article class="project-card portfolio-project reveal">
         <div class="project-details">
           <div class="project-index">Interactive product / 02</div>

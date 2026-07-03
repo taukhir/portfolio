@@ -1289,6 +1289,10 @@ button:focus-visible,
   margin-top: 30px;
 }
 
+.web-project {
+  margin-top: 30px;
+}
+
 .case-study-strip {
   display: grid;
   margin-top: 30px;
@@ -1450,6 +1454,10 @@ button:focus-visible,
 
 .deep-dive-card-accent {
   background: rgba(var(--accent-rgb), 0.08);
+}
+
+.web-project .project-details {
+  border-right: 1px solid var(--line-dark);
 }
 
 .portfolio-project .project-details {
@@ -1623,6 +1631,187 @@ button:focus-visible,
   color: var(--ink);
   border-color: var(--accent);
   background: var(--accent);
+}
+
+.web-visual {
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(var(--accent-rgb), 0.32), transparent 34%),
+    linear-gradient(135deg, #eef2ff 0%, #d5dcef 48%, #bfc8dc 100%);
+}
+
+.web-preview {
+  position: relative;
+  display: grid;
+  min-height: 520px;
+  padding: 24px;
+  overflow: hidden;
+  color: var(--ink);
+  background: #f8fafc;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 16px;
+}
+
+.web-preview::before {
+  position: absolute;
+  right: -84px;
+  bottom: -94px;
+  width: 240px;
+  height: 240px;
+  background: rgba(var(--accent-rgb), 0.12);
+  border-radius: 50%;
+  content: "";
+}
+
+.web-nav,
+.web-hero,
+.web-products,
+.web-console,
+.web-admin {
+  position: relative;
+  z-index: 1;
+}
+
+.web-nav {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  padding: 0 16px;
+  gap: 10px;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.web-nav strong {
+  margin-right: auto;
+  font-size: 14px;
+  letter-spacing: -0.04em;
+}
+
+.web-nav strong span {
+  color: var(--accent);
+}
+
+.web-nav i {
+  width: 42px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.web-hero {
+  padding: 28px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--ink) 0%, #28303a 100%);
+}
+
+.web-hero small,
+.web-console span,
+.web-admin span {
+  display: block;
+  color: var(--accent);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.web-hero strong {
+  display: block;
+  max-width: 360px;
+  margin-top: 14px;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 620;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.web-hero span {
+  display: block;
+  width: 120px;
+  height: 8px;
+  margin-top: 26px;
+  background: var(--accent);
+}
+
+.web-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.web-products article {
+  min-height: 142px;
+  padding: 12px;
+  background: var(--white);
+  border: 1px solid rgba(22, 28, 36, 0.12);
+}
+
+.web-products b,
+.web-products span,
+.web-products em {
+  display: block;
+}
+
+.web-products b {
+  height: 62px;
+  background:
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.85), rgba(22, 28, 36, 0.88));
+}
+
+.web-products span {
+  width: 74%;
+  height: 8px;
+  margin-top: 16px;
+  background: #d8dee7;
+}
+
+.web-products em {
+  width: 46%;
+  height: 8px;
+  margin-top: 9px;
+  background: var(--accent);
+}
+
+.web-console {
+  display: grid;
+  padding: 18px;
+  color: var(--white);
+  background: #111822;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  grid-template-columns: 1fr 0.72fr;
+  gap: 20px;
+}
+
+.web-console strong {
+  display: block;
+  margin-top: 12px;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.web-console ol {
+  margin: 0;
+  padding-left: 17px;
+  color: #b8c1cc;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.web-admin {
+  display: grid;
+  padding: 16px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(22, 28, 36, 0.1);
+  grid-template-columns: 1fr repeat(4, 42px);
+  gap: 10px;
+}
+
+.web-admin i {
+  height: 28px;
+  background: rgba(22, 28, 36, 0.12);
 }
 
 .portfolio-preview {
@@ -2475,6 +2664,7 @@ button:focus-visible,
     grid-template-columns: 1fr;
   }
 
+  .web-project .project-details,
   .portfolio-project .project-details {
     border-right: 0;
   }
@@ -2487,10 +2677,12 @@ button:focus-visible,
     order: 1;
   }
 
+  .web-project .project-details,
   .portfolio-project .project-details {
     order: 1;
   }
 
+  .web-project .project-visual,
   .portfolio-project .project-visual {
     order: 2;
   }
@@ -2780,6 +2972,20 @@ button:focus-visible,
     font-size: 10px;
   }
 
+  .web-preview {
+    min-height: 0;
+  }
+
+  .web-products,
+  .web-console,
+  .web-admin {
+    grid-template-columns: 1fr;
+  }
+
+  .web-admin i {
+    width: 100%;
+  }
+
   .experience > * {
     max-width: none;
   }
@@ -2995,6 +3201,19 @@ button:focus-visible,
 
   .case-study-strip {
     grid-template-columns: 1fr;
+  }
+
+  .web-preview {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .web-nav i {
+    width: 24px;
+  }
+
+  .web-hero {
+    padding: 22px;
   }
 
   .lead-capability-strip {

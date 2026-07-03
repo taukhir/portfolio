@@ -1300,16 +1300,38 @@ button:focus-visible,
 }
 
 .case-study-strip article {
+  position: relative;
   min-height: 190px;
   padding: 26px;
   border-right: 1px solid var(--line-dark);
   border-bottom: 1px solid var(--line-dark);
 }
 
+.case-study-strip article::after {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  width: 22px;
+  height: 1px;
+  background: var(--accent);
+  content: "";
+}
+
+.case-study-strip strong {
+  display: block;
+  max-width: 220px;
+  margin-top: 44px;
+  font-size: 22px;
+  font-weight: 610;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
 .case-study-strip p {
-  margin: 46px 0 0;
+  max-width: 235px;
+  margin: 16px 0 0;
   color: #b4bdc6;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.55;
 }
 
@@ -2586,8 +2608,12 @@ button:focus-visible,
   }
 
   .hire-focus-grid h3,
-  .case-study-strip p {
+  .case-study-strip strong {
     margin-top: 26px;
+  }
+
+  .case-study-strip p {
+    max-width: none;
   }
 
   .experience > * {

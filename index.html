@@ -643,19 +643,23 @@
       <div class="case-study-strip reveal" aria-label="ShopVerse case study summary">
         <article>
           <span>Problem</span>
-          <p>Checkout spans order, inventory, and payment services without one shared database transaction.</p>
+          <strong>Distributed checkout</strong>
+          <p>Order, inventory, and payment need consistency without one shared database.</p>
         </article>
         <article>
           <span>Decision</span>
-          <p>Use Kafka choreography, service-owned schemas, transactional outbox, idempotency, and compensation.</p>
+          <strong>Kafka choreography</strong>
+          <p>Service-owned schemas, outbox events, idempotency, and compensation.</p>
         </article>
         <article>
           <span>Trade-off</span>
-          <p>Accept more operational complexity in exchange for independent services and explicit failure handling.</p>
+          <strong>More ops, safer failure</strong>
+          <p>Accept operational complexity to keep failure paths explicit and observable.</p>
         </article>
         <article>
           <span>Proof</span>
-          <p>Timelines, DLT persistence, replay audit, traces, metrics, logs, CI checks, and runnable Docker demos.</p>
+          <strong>Inspectable behavior</strong>
+          <p>Timelines, DLT audit, traces, metrics, CI checks, and Docker demos.</p>
         </article>
       </div>
 

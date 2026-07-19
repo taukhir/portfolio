@@ -13,6 +13,7 @@ The site presents:
 - Career experience across Nagarro, HCLTech, Morgan Stanley, Optum, and Tecnotree
 - ShopVerse microservices architecture and project details
 - ShopVerse Web Angular frontend project details
+- Updated resume PDF and editable DOCX without vendor template branding
 - Backend, cloud, data, observability, quality, and leadership skills
 - Engineering principles, working style, resume, and contact links
 
@@ -54,6 +55,13 @@ required. GitHub Pages serves the repository files directly over HTTPS.
 | [ShopVerse Web](https://github.com/taukhir/shopverse/tree/master/shopverse-web) | Angular 22 commerce client with storefront, catalog, cart, checkout, orders, account, auth guards, HTTP interceptor, and admin operations screens |
 | Engineering Portfolio | This static GitHub Pages site, including responsive layout, accessibility, SEO, theme controls, recruiter narrative, and project storytelling |
 
+## Resume Assets
+
+| Asset | Purpose |
+| --- | --- |
+| `assets/Tauqeer-Ahmed-Resume.pdf` | Public resume download linked from the live portfolio |
+| `assets/Tauqeer-Ahmed-Resume.docx` | Editable resume source without Nagarro template branding or watermark metadata |
+
 ## Repository Structure
 
 ```text
@@ -63,6 +71,7 @@ portfolio/
 |       `-- pages.yml
 |-- assets/
 |   |-- shopverse-architecture-flow.svg
+|   |-- Tauqeer-Ahmed-Resume.docx
 |   `-- Tauqeer-Ahmed-Resume.pdf
 |-- .nojekyll
 |-- favicon.svg
@@ -149,9 +158,9 @@ on the repository's
 - Edit professional content and links in `index.html`.
 - Update visual styles and responsive behavior in `styles.css`.
 - Update interactive behavior in `script.js`.
-- Replace the resume while keeping
-  `assets/Tauqeer-Ahmed-Resume.pdf` unchanged, or update every reference to the
-  new filename.
+- Replace the resume while keeping `assets/Tauqeer-Ahmed-Resume.pdf` unchanged,
+  or update every reference to the new filename. Keep the editable source at
+  `assets/Tauqeer-Ahmed-Resume.docx`.
 - Keep the canonical URL, Open Graph URL, profile README, and contact links in
   sync when the public URL changes.
 

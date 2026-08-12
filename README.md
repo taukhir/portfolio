@@ -184,5 +184,5 @@ Before publishing:
 ## Contact
 
 - **Email:** [ahmedtaukhir@gmail.com](mailto:ahmedtaukhir@gmail.com)
-- **LinkedIn:** [tauqeer-ahmed-379803173](https://www.linkedin.com/in/tauqeer-ahmed-379803173)
+- **LinkedIn:** [tauqeer-ahmed-java](https://www.linkedin.com/in/tauqeer-ahmed-java)
 - **GitHub:** [github.com/taukhir](https://github.com/taukhir)

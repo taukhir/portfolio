@@ -183,6 +183,6 @@ Before publishing:
 
 ## Contact
 
-- **Email:** [ahmedtaukhir@gmail.com](mailto:ahmedtaukhir@gmail.com)
+- **Email:** [tauqeerahmed.dev@gmail.com](mailto:tauqeerahmed.dev@gmail.com)
 - **LinkedIn:** [tauqeer-ahmed-java](https://www.linkedin.com/in/tauqeer-ahmed-java)
 - **GitHub:** [github.com/taukhir](https://github.com/taukhir)

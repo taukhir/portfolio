@@ -265,7 +265,7 @@ engineeringTabs.forEach((tab, index) => {
 });
 
 copyEmailButton.addEventListener("click", async () => {
-  const email = "ahmedtaukhir@gmail.com";
+  const email = "tauqeerahmed.dev@gmail.com";
 
   try {
     if (navigator.clipboard?.writeText) {

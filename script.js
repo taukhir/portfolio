@@ -186,10 +186,6 @@ navLinks.forEach((link) => {
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (!prefersReducedMotion) {
-  metricValues.forEach((value) => {
-    value.textContent = "0";
-  });
-
   const metricObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -200,11 +196,13 @@ if (!prefersReducedMotion) {
         const target = Number(value.dataset.count);
         const duration = 1050;
         const startTime = performance.now();
+        const initialValue = Number(value.textContent) || target;
 
         const animateCount = (currentTime) => {
           const progress = Math.min((currentTime - startTime) / duration, 1);
           const easedProgress = 1 - Math.pow(1 - progress, 3);
-          value.textContent = String(Math.round(target * easedProgress));
+          const currentValue = initialValue + (target - initialValue) * easedProgress;
+          value.textContent = String(Math.round(currentValue));
 
           if (progress < 1) {
             requestAnimationFrame(animateCount);

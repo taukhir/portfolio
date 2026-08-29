@@ -1,5 +1,4 @@
 const header = document.querySelector("[data-header]");
-const menuButton = document.querySelector(".menu-toggle");
 const navLinks = [...document.querySelectorAll(".site-nav a")];
 const sections = [...document.querySelectorAll("main section[id]")];
 const dialog = document.querySelector(".diagram-dialog");
@@ -167,19 +166,9 @@ const updateHeader = () => {
 updateHeader();
 window.addEventListener("scroll", updateHeader, { passive: true });
 
-menuButton.addEventListener("click", () => {
-  closeAppearanceMenu();
-  const isOpen = document.body.classList.toggle("menu-open");
-  menuButton.setAttribute("aria-expanded", String(isOpen));
-  menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
-});
-
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
     closeAppearanceMenu();
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Open navigation");
   });
 });
 
@@ -355,9 +344,4 @@ window.addEventListener("keydown", (event) => {
     appearanceToggle.focus();
   }
 
-  if (event.key === "Escape" && document.body.classList.contains("menu-open")) {
-    document.body.classList.remove("menu-open");
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Open navigation");
-  }
 });

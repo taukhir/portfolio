@@ -181,6 +181,39 @@
       background: rgba(255, 255, 255, 0.05);
     }
 
+    .api-status {
+      display: grid;
+      margin-bottom: 14px;
+      padding: 14px;
+      border: 1px solid rgba(126, 226, 168, 0.26);
+      border-radius: 18px;
+      background: rgba(126, 226, 168, 0.08);
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .api-status i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 8px rgba(126, 226, 168, 0.12);
+    }
+
+    .api-status span,
+    .order-table span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .api-status strong {
+      display: block;
+      margin-top: 3px;
+      font-size: 14px;
+    }
+
     .system-row {
       display: grid;
       padding: 14px 0;
@@ -292,6 +325,13 @@
       font-size: 11px;
     }
 
+    .card-actions {
+      display: flex;
+      margin-top: 18px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .cart {
       position: sticky;
       top: 100px;
@@ -328,6 +368,30 @@
       padding-top: 12px;
       justify-content: space-between;
       font-weight: 900;
+    }
+
+    .checkout-button {
+      width: 100%;
+      margin-top: 18px;
+      color: #111822;
+      border-color: transparent;
+      background: var(--accent);
+    }
+
+    .confirmation {
+      display: none;
+      margin-top: 14px;
+      padding: 13px;
+      color: #dff8e9;
+      border: 1px solid rgba(126, 226, 168, 0.28);
+      border-radius: 16px;
+      background: rgba(126, 226, 168, 0.1);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .confirmation.show {
+      display: block;
     }
 
     .timeline {
@@ -385,6 +449,76 @@
       margin-top: 8px;
       font-size: 22px;
       letter-spacing: -0.045em;
+    }
+
+    .order-table {
+      display: grid;
+      margin-top: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+    }
+
+    .order-row {
+      display: grid;
+      padding: 13px 14px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 12px;
+    }
+
+    .order-row:last-child {
+      border-bottom: 0;
+    }
+
+    .order-row strong {
+      font-size: 13px;
+    }
+
+    .badge {
+      padding: 6px 9px;
+      color: #111822;
+      border-radius: 999px;
+      background: var(--green);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .badge.warn {
+      background: var(--accent);
+    }
+
+    dialog {
+      width: min(560px, calc(100% - 28px));
+      padding: 0;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-body {
+      padding: 24px;
+    }
+
+    .modal-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .modal-close {
+      width: 36px;
+      min-height: 36px;
+      padding: 0;
     }
 
     .notice {
@@ -460,7 +594,8 @@
 
       .system-row,
       .catalog,
-      .ops-grid {
+      .ops-grid,
+      .order-row {
         grid-template-columns: 1fr;
       }
     }
@@ -495,6 +630,13 @@
           </div>
         </div>
         <aside class="system-card" aria-label="Demo architecture summary">
+          <div class="api-status">
+            <i aria-hidden="true"></i>
+            <div>
+              <span>Runtime mode</span>
+              <strong>Static fallback active · no backend required</strong>
+            </div>
+          </div>
           <div class="system-row">
             <span>Frontend</span>
             <strong>Angular storefront patterns, responsive product cards, protected checkout flow.</strong>
@@ -533,6 +675,8 @@
             <span>Total</span>
             <span data-cart-total>₹0</span>
           </div>
+          <button class="checkout-button" type="button" data-checkout>Place demo order</button>
+          <div class="confirmation" data-confirmation></div>
           <ol class="timeline">
             <li>Cart validated from local product data</li>
             <li>JWT/API step shown as an architecture checkpoint</li>
@@ -549,6 +693,7 @@
           <div class="ops-tile"><span>Payment retries</span><strong>2</strong></div>
           <div class="ops-tile"><span>DLT events</span><strong>1</strong></div>
         </div>
+        <div class="order-table" aria-label="Recent demo orders" data-orders></div>
         <p class="notice">
           In the full backend, these operations map to order status, inventory,
           payment, Kafka retry, DLT, and recovery APIs. This page keeps the
@@ -557,6 +702,25 @@
       </section>
     </main>
   </div>
+
+  <dialog data-product-dialog>
+    <div class="modal-body">
+      <div class="modal-top">
+        <div>
+          <div class="kicker">Product detail</div>
+          <h2 data-dialog-title></h2>
+        </div>
+        <button class="modal-close" type="button" data-dialog-close aria-label="Close product detail">×</button>
+      </div>
+      <p class="notice" data-dialog-copy></p>
+      <div class="ops-grid">
+        <div class="ops-tile"><span>Category</span><strong data-dialog-type></strong></div>
+        <div class="ops-tile"><span>Inventory</span><strong data-dialog-stock></strong></div>
+        <div class="ops-tile"><span>Price</span><strong data-dialog-price></strong></div>
+        <div class="ops-tile"><span>Source</span><strong>Static</strong></div>
+      </div>
+    </div>
+  </dialog>
 
   <script>
     const products = [
@@ -573,6 +737,17 @@
     const cartList = document.querySelector("[data-cart-list]");
     const cartTotal = document.querySelector("[data-cart-total]");
     const filters = [...document.querySelectorAll("[data-filter]")];
+    const confirmation = document.querySelector("[data-confirmation]");
+    const checkoutButton = document.querySelector("[data-checkout]");
+    const ordersTable = document.querySelector("[data-orders]");
+    const productDialog = document.querySelector("[data-product-dialog]");
+    const closeDialog = document.querySelector("[data-dialog-close]");
+
+    const orders = [
+      { id: "ORD-9001", customer: "Demo buyer", total: 82999, status: "Created" },
+      { id: "ORD-9000", customer: "Ops review", total: 15498, status: "Recovered" },
+      { id: "ORD-8999", customer: "Static seed", total: 67999, status: "Paid" }
+    ];
 
     const money = (value) => new Intl.NumberFormat("en-IN", {
       style: "currency",
@@ -592,7 +767,10 @@
             <span class="stock">${product.stock} in stock</span>
           </div>
           <div class="meta">
-            <button class="add-button" type="button" data-add="${product.id}">Add to cart</button>
+            <div class="card-actions">
+              <button type="button" data-view="${product.id}">View details</button>
+              <button class="add-button" type="button" data-add="${product.id}">Add to cart</button>
+            </div>
           </div>
         </article>
       `).join("");
@@ -615,6 +793,27 @@
       cartTotal.textContent = money(items.reduce((sum, item) => sum + item.price * item.qty, 0));
     }
 
+    function renderOrders() {
+      ordersTable.innerHTML = orders.map((order) => `
+        <div class="order-row">
+          <strong>${order.id}</strong>
+          <span>${order.customer}</span>
+          <span>${money(order.total)}</span>
+          <em class="badge ${order.status === "Recovered" ? "warn" : ""}">${order.status}</em>
+        </div>
+      `).join("");
+    }
+
+    function openProduct(product) {
+      document.querySelector("[data-dialog-title]").textContent = product.name;
+      document.querySelector("[data-dialog-copy]").textContent =
+        `${product.name} is served from embedded demo data. In the full platform, this view maps to catalog, inventory, pricing, and cart APIs.`;
+      document.querySelector("[data-dialog-type]").textContent = product.type;
+      document.querySelector("[data-dialog-stock]").textContent = `${product.stock}`;
+      document.querySelector("[data-dialog-price]").textContent = money(product.price);
+      productDialog.showModal();
+    }
+
     filters.forEach((button) => {
       button.addEventListener("click", () => {
         filters.forEach((item) => item.classList.remove("active"));
@@ -625,16 +824,40 @@
 
     catalog.addEventListener("click", (event) => {
       const addButton = event.target.closest("[data-add]");
-      if (!addButton) return;
-      const product = products.find((item) => item.id === Number(addButton.dataset.add));
+      const viewButton = event.target.closest("[data-view]");
+      if (!addButton && !viewButton) return;
+      const product = products.find((item) => item.id === Number((addButton || viewButton).dataset.add || viewButton?.dataset.view));
+      if (viewButton) {
+        openProduct(product);
+        return;
+      }
       const existing = cart.get(product.id) || { ...product, qty: 0 };
       existing.qty += 1;
       cart.set(product.id, existing);
+      confirmation.classList.remove("show");
       renderCart();
+    });
+
+    checkoutButton.addEventListener("click", () => {
+      const items = [...cart.values()];
+      if (!items.length) {
+        confirmation.textContent = "Add at least one product to create a demo order.";
+        confirmation.classList.add("show");
+        return;
+      }
+      const total = items.reduce((sum, item) => sum + item.price * item.qty, 0);
+      confirmation.textContent = `Demo order created from static fallback data. Total: ${money(total)}.`;
+      confirmation.classList.add("show");
+    });
+
+    closeDialog.addEventListener("click", () => productDialog.close());
+    productDialog.addEventListener("click", (event) => {
+      if (event.target === productDialog) productDialog.close();
     });
 
     renderCatalog();
     renderCart();
+    renderOrders();
   </script>
 </body>
 </html>

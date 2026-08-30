@@ -1501,19 +1501,23 @@ button:focus-visible,
   margin-top: 42px;
   padding: 24px;
   color: var(--white);
-  border: 1px solid var(--line-dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background:
-    radial-gradient(circle at 100% 0%, rgba(var(--accent-rgb), 0.14), transparent 32%),
-    rgba(255, 255, 255, 0.025);
+    radial-gradient(circle at 100% 0%, rgba(var(--accent-rgb), 0.2), transparent 34%),
+    linear-gradient(135deg, #111822 0%, #242a31 100%);
   grid-template-columns: 0.34fr 0.66fr;
   gap: 24px;
   align-items: center;
 }
 
 .proof-copy span {
-  color: var(--accent);
+  display: inline-flex;
+  padding: 7px 9px;
+  color: #0b0f14;
+  background: var(--accent);
+  border-radius: 999px;
   font-family: "Cascadia Code", Consolas, monospace;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1521,16 +1525,17 @@ button:focus-visible,
 
 .proof-copy strong {
   display: block;
-  margin-top: 16px;
+  margin-top: 18px;
+  color: #f8fafc;
   font-size: clamp(24px, 3vw, 38px);
-  font-weight: 620;
-  letter-spacing: -0.045em;
-  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
 }
 
 .proof-copy p {
-  margin: 16px 0 0;
-  color: #99a4ae;
+  margin: 18px 0 0;
+  color: #c3cbd5;
   font-size: 13px;
   line-height: 1.65;
 }
@@ -1544,7 +1549,7 @@ button:focus-visible,
 .proof-shots figure {
   margin: 0;
   padding: 10px;
-  border: 1px solid var(--line-dark);
+  border: 1px solid rgba(255, 255, 255, 0.11);
   background: rgba(255, 255, 255, 0.045);
 }
 

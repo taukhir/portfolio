@@ -1757,6 +1757,44 @@ button:focus-visible,
   background: var(--accent);
 }
 
+.delivery-map {
+  display: grid;
+  margin-top: 34px;
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.delivery-map > div {
+  min-height: 138px;
+  padding: 18px;
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.delivery-map span {
+  color: var(--accent);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.delivery-map strong {
+  display: block;
+  margin-top: 18px;
+  color: var(--white);
+  font-size: 17px;
+  letter-spacing: -0.035em;
+}
+
+.delivery-map p {
+  margin: 9px 0 0;
+  color: #99a4ae;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
 .web-visual {
   display: flex;
   flex-direction: column;
@@ -3394,6 +3432,14 @@ button:focus-visible,
   .project-features > div {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .delivery-map {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-map > div {
+    min-height: auto;
   }
 
   .outcome-grid {

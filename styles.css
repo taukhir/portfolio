@@ -1759,13 +1759,13 @@ button:focus-visible,
 
 .interface-coverage {
   display: grid;
-  margin-top: 34px;
-  padding: 20px;
+  margin-top: 28px;
+  padding: 16px;
   border: 1px solid var(--line-dark);
   background:
     radial-gradient(circle at 12% 20%, rgba(var(--accent-rgb), 0.13), transparent 32%),
     rgba(255, 255, 255, 0.025);
-  gap: 18px;
+  gap: 13px;
 }
 
 .coverage-header {
@@ -1786,19 +1786,19 @@ button:focus-visible,
 
 .coverage-header strong {
   color: var(--white);
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: -0.025em;
 }
 
 .coverage-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 8px;
 }
 
 .coverage-grid article {
-  min-height: 118px;
-  padding: 15px 12px;
+  min-height: 74px;
+  padding: 12px 10px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.045);
   transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
@@ -1810,14 +1810,16 @@ button:focus-visible,
   transform: translateY(-4px);
 }
 
-.coverage-grid svg {
-  width: 27px;
-  height: 27px;
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.coverage-grid i {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(var(--accent-rgb), 0.75);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.24), transparent 55%),
+    rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 4px rgba(var(--accent-rgb), 0.08);
 }
 
 .coverage-grid strong,
@@ -1826,16 +1828,16 @@ button:focus-visible,
 }
 
 .coverage-grid strong {
-  margin-top: 18px;
+  margin-top: 12px;
   color: var(--white);
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: -0.03em;
 }
 
 .coverage-grid span {
-  margin-top: 6px;
+  margin-top: 4px;
   color: #99a4ae;
-  font-size: 10px;
+  font-size: 9px;
 }
 
 .coverage-bar {

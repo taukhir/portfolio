@@ -1372,6 +1372,43 @@ button:focus-visible,
   text-transform: uppercase;
 }
 
+.experience-snapshot {
+  display: grid;
+  margin-top: 28px;
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.experience-snapshot article {
+  min-height: 145px;
+  padding: 24px 26px;
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  background:
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.075), transparent 58%),
+    rgba(255, 255, 255, 0.025);
+}
+
+.experience-snapshot span {
+  display: block;
+  color: var(--accent-soft);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.experience-snapshot strong {
+  display: block;
+  margin-top: 30px;
+  color: #d9e0e7;
+  font-size: clamp(17px, 1.7vw, 22px);
+  font-weight: 560;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+}
+
 .timeline {
   margin-top: 70px;
   border-top: 1px solid var(--line-dark);
@@ -2485,6 +2522,8 @@ button:focus-visible,
 }
 
 .docs-visual {
+  display: flex;
+  flex-direction: column;
   background:
     radial-gradient(circle at 82% 16%, rgba(var(--accent-rgb), 0.24), transparent 34%),
     linear-gradient(135deg, #eef2f4 0%, #d9e0e8 100%);
@@ -2492,13 +2531,14 @@ button:focus-visible,
 
 .docs-preview {
   display: grid;
+  flex: 1 1 auto;
   min-height: 520px;
   padding: 24px;
   color: var(--white);
   background:
     linear-gradient(135deg, rgba(8, 13, 20, 0.98), rgba(25, 33, 44, 0.96)),
     var(--ink);
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto auto;
   gap: 18px;
 }
 
@@ -2612,6 +2652,42 @@ button:focus-visible,
   font-family: "Cascadia Code", Consolas, monospace;
   font-size: 10px;
   font-weight: 600;
+}
+
+.docs-proof-grid {
+  display: grid;
+  margin-top: 2px;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.docs-proof-grid article {
+  min-height: 82px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.14), transparent 68%),
+    rgba(255, 255, 255, 0.045);
+}
+
+.docs-proof-grid span {
+  display: block;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.docs-proof-grid strong {
+  display: block;
+  margin-top: 11px;
+  color: #c2cbd4;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 8px;
+  line-height: 1.45;
+  text-transform: uppercase;
 }
 
 .preview-sidebar {
@@ -2970,11 +3046,13 @@ button:focus-visible,
 }
 
 .skill-group {
+  display: flex;
   position: relative;
   min-height: 330px;
   padding: 32px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  flex-direction: column;
   transition: color 250ms ease, background 250ms ease;
 }
 
@@ -3041,7 +3119,8 @@ button:focus-visible,
 
 .skill-tags {
   display: flex;
-  margin-top: 25px;
+  margin-top: auto;
+  padding-top: 25px;
   gap: 7px;
   flex-wrap: wrap;
 }
@@ -3968,6 +4047,10 @@ button:focus-visible,
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .experience-snapshot {
+    grid-template-columns: 1fr;
+  }
+
   .timeline {
     margin-top: 55px;
   }
@@ -4215,6 +4298,10 @@ button:focus-visible,
     padding: 16px;
   }
 
+  .docs-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
   .docs-layout {
     grid-template-columns: 1fr;
   }
@@ -4349,6 +4436,7 @@ button:focus-visible,
   }
 
   .timeline-item,
+  .experience-snapshot,
   .project-card,
   .skill-group,
   .outcome-card,

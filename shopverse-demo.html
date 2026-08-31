@@ -109,12 +109,17 @@
     }
 
     .pill.primary,
+    .pill.success,
     .add-button,
     .add-button:hover,
     .add-button:focus-visible {
       color: #111822;
       border-color: transparent;
       background: var(--accent);
+    }
+
+    .pill.success {
+      background: var(--green);
     }
 
     .hero {
@@ -179,6 +184,41 @@
       border: 1px solid var(--line);
       border-radius: 26px;
       background: rgba(255, 255, 255, 0.05);
+    }
+
+    .system-topline {
+      display: flex;
+      margin-bottom: 14px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .system-topline span {
+      color: var(--muted);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .live-dot::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 8px rgba(126, 226, 168, 0.1);
+      content: "";
     }
 
     .api-status {
@@ -326,6 +366,58 @@
       line-height: 1.5;
     }
 
+    .architecture-lane {
+      display: grid;
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(16, 23, 34, 0.62);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .lane-step {
+      position: relative;
+      padding: 16px;
+      min-height: 110px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+    }
+
+    .lane-step:not(:last-child)::after {
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      color: var(--accent);
+      content: "→";
+      font-weight: 900;
+      transform: translateY(-50%);
+    }
+
+    .lane-step span {
+      color: var(--green);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .lane-step strong {
+      display: block;
+      margin-top: 14px;
+      font-size: 15px;
+      letter-spacing: -0.035em;
+    }
+
+    .lane-step p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
     .section-title {
       margin: 44px 0 16px;
       color: var(--muted);
@@ -391,6 +483,33 @@
       margin: 18px 0 8px;
       font-size: 20px;
       letter-spacing: -0.045em;
+    }
+
+    .product-badge-row {
+      display: flex;
+      margin-top: 14px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .product-badge-row span {
+      padding: 6px 8px;
+      color: var(--green);
+      border: 1px solid rgba(126, 226, 168, 0.2);
+      border-radius: 999px;
+      background: rgba(126, 226, 168, 0.07);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .product-badge-row em {
+      color: var(--muted);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 10px;
+      font-style: normal;
     }
 
     .card p {
@@ -512,10 +631,51 @@
       content: "";
     }
 
+    .api-contract {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid rgba(142, 162, 255, 0.24);
+      border-radius: 18px;
+      background: rgba(142, 162, 255, 0.08);
+    }
+
+    .api-contract span {
+      display: block;
+      color: var(--blue);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .api-contract code {
+      display: block;
+      margin-top: 10px;
+      color: var(--text);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      white-space: normal;
+    }
+
     .ops-panel {
       margin-top: 24px;
       padding: 26px;
       border-radius: 30px;
+    }
+
+    .ops-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .ops-heading p {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .ops-grid {
@@ -638,8 +798,8 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { transform: translateY(12px); }
+      to { transform: translateY(0); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -659,8 +819,13 @@
 
       .catalog,
       .flow-strip,
+      .architecture-lane,
       .ops-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .lane-step:not(:last-child)::after {
+        display: none;
       }
 
       .cart {
@@ -697,9 +862,14 @@
       .system-row,
       .catalog,
       .flow-strip,
+      .architecture-lane,
       .ops-grid,
       .order-row {
         grid-template-columns: 1fr;
+      }
+
+      .ops-heading {
+        flex-direction: column;
       }
     }
   </style>
@@ -712,6 +882,7 @@
         <a class="pill" href="#catalog">Catalog</a>
         <a class="pill" href="#cart">Checkout</a>
         <a class="pill" href="#operations">Operations</a>
+        <a class="pill" href="https://taukhir.github.io/shopverse/" target="_blank" rel="noopener noreferrer">Docs</a>
         <a class="pill primary" href="index.html">Portfolio</a>
       </nav>
     </header>
@@ -730,6 +901,7 @@
             <a class="pill primary" href="#catalog">Explore catalog</a>
             <a class="pill" href="https://github.com/taukhir/shopverse/tree/master/shopverse-web" target="_blank" rel="noopener noreferrer">Angular source</a>
             <a class="pill" href="https://github.com/taukhir/shopverse" target="_blank" rel="noopener noreferrer">Backend repo</a>
+            <a class="pill success" href="https://taukhir.github.io/shopverse/" target="_blank" rel="noopener noreferrer">Live docs</a>
           </div>
           <div class="demo-stats" aria-label="Static demo scope">
             <div><span>6</span><strong>Seed products</strong></div>
@@ -738,6 +910,10 @@
           </div>
         </div>
         <aside class="system-card" aria-label="Demo architecture summary">
+          <div class="system-topline">
+            <span>demo profile</span>
+            <strong class="live-dot">live</strong>
+          </div>
           <div class="api-status">
             <i aria-hidden="true"></i>
             <div>
@@ -783,6 +959,29 @@
         </article>
       </section>
 
+      <section class="architecture-lane fade-in" aria-label="Static demo architecture lane">
+        <article class="lane-step">
+          <span>UI</span>
+          <strong>Storefront surface</strong>
+          <p>Catalog, filters, detail modal, cart, and checkout simulation.</p>
+        </article>
+        <article class="lane-step">
+          <span>Data</span>
+          <strong>Static fallback</strong>
+          <p>Embedded seed data keeps the demo available without APIs.</p>
+        </article>
+        <article class="lane-step">
+          <span>Contract</span>
+          <strong>Backend mapping</strong>
+          <p>Checkout mirrors the real order API and event model.</p>
+        </article>
+        <article class="lane-step">
+          <span>Ops</span>
+          <strong>Recovery evidence</strong>
+          <p>Admin view highlights retries, DLT, and order recovery.</p>
+        </article>
+      </section>
+
       <section class="grid" id="catalog">
         <div>
           <h2 class="section-title">Storefront catalog</h2>
@@ -801,6 +1000,10 @@
             Static fallback mode: cart and order state are calculated in the
             browser from local demo data. No backend request is sent.
           </p>
+          <div class="api-contract" aria-label="Checkout API contract">
+            <span>Checkout API</span>
+            <code>POST /api/v1/orders/checkout · JWT · Idempotency-Key</code>
+          </div>
           <div class="cart-list" data-cart-list></div>
           <div class="total">
             <span>Total</span>
@@ -817,7 +1020,13 @@
       </section>
 
       <section class="ops-panel" id="operations">
-        <h2>Admin operations snapshot</h2>
+        <div class="ops-heading">
+          <h2>Admin operations snapshot</h2>
+          <p>
+            A compact operations view for the same commerce journey: order
+            status, inventory risk, payment retry, and failed-event recovery.
+          </p>
+        </div>
         <div class="ops-grid">
           <div class="ops-tile"><span>Open orders</span><strong data-open-orders>12</strong></div>
           <div class="ops-tile"><span>Inventory alerts</span><strong>3</strong></div>
@@ -875,9 +1084,9 @@
     const closeDialog = document.querySelector("[data-dialog-close]");
 
     const orders = [
-      { id: "ORD-9001", customer: "Demo buyer", total: 82999, status: "Created" },
-      { id: "ORD-9000", customer: "Ops review", total: 15498, status: "Recovered" },
-      { id: "ORD-8999", customer: "Static seed", total: 67999, status: "Paid" }
+      { id: "ORD-9001", customer: "Demo buyer", total: 82999, topic: "order.created", status: "Created" },
+      { id: "ORD-9000", customer: "Ops review", total: 15498, topic: "payment.failed", status: "Recovered" },
+      { id: "ORD-8999", customer: "Static seed", total: 67999, topic: "payment.completed", status: "Paid" }
     ];
 
     const money = (value) => new Intl.NumberFormat("en-IN", {
@@ -891,6 +1100,10 @@
       catalog.innerHTML = visible.map((product) => `
         <article class="card fade-in">
           <div class="product-art">${product.code}</div>
+          <div class="product-badge-row">
+            <span>${product.type}</span>
+            <em>local data</em>
+          </div>
           <h3>${product.name}</h3>
           <p>${product.summary}</p>
           <div class="meta">
@@ -929,7 +1142,7 @@
         <div class="order-row">
           <strong>${order.id}</strong>
           <span>${order.customer}</span>
-          <span>${money(order.total)}</span>
+          <span>${order.topic} · ${money(order.total)}</span>
           <em class="badge ${order.status === "Recovered" ? "warn" : ""}">${order.status}</em>
         </div>
       `).join("");

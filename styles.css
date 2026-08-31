@@ -561,6 +561,68 @@ button:focus-visible,
   flex-wrap: wrap;
 }
 
+.why-hire-strip {
+  display: grid;
+  max-width: 760px;
+  margin-top: 26px;
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(14px);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.why-hire-strip article {
+  position: relative;
+  min-height: 142px;
+  padding: 18px;
+  overflow: hidden;
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  transition: background 220ms ease, transform 220ms ease;
+}
+
+.why-hire-strip article::after {
+  position: absolute;
+  right: -22px;
+  bottom: -28px;
+  width: 82px;
+  height: 82px;
+  border: 1px solid rgba(var(--accent-rgb), 0.16);
+  border-radius: 50%;
+  content: "";
+}
+
+.why-hire-strip article:hover {
+  background: rgba(var(--accent-rgb), 0.07);
+  transform: translateY(-3px);
+}
+
+.why-hire-strip span {
+  display: block;
+  color: var(--accent);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.why-hire-strip strong {
+  display: block;
+  margin-top: 20px;
+  color: var(--white);
+  font-size: 14px;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+
+.why-hire-strip p {
+  margin: 9px 0 0;
+  color: #9fa9b4;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
 .available-strip {
   display: flex;
   max-width: 720px;
@@ -1861,6 +1923,40 @@ button:focus-visible,
   color: #aeb6bf;
   font-size: 17px;
   line-height: 1.65;
+}
+
+.project-impact {
+  display: grid;
+  margin-top: 26px;
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.project-impact div {
+  min-height: 92px;
+  padding: 16px;
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.project-impact span {
+  display: block;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.project-impact strong {
+  display: block;
+  margin-top: 9px;
+  color: #aeb7c0;
+  font-size: 10px;
+  line-height: 1.45;
 }
 
 .project-features {
@@ -3345,6 +3441,11 @@ button:focus-visible,
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .why-hire-strip {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+  }
+
   .work-heading,
   .skills-heading,
   .playbook-heading,
@@ -3998,6 +4099,11 @@ button:focus-visible,
   }
 
   .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .why-hire-strip,
+  .project-impact {
     grid-template-columns: 1fr;
   }
 

@@ -2669,30 +2669,15 @@ button:focus-visible,
 }
 
 .docs-layout aside article {
-  display: grid;
-  min-height: 72px;
-  padding: 10px;
-  align-items: start;
+  min-height: 58px;
+  padding: 11px 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.04);
-  grid-template-columns: 22px 1fr;
-  gap: 9px;
-}
-
-.docs-layout aside svg {
-  width: 17px;
-  height: 17px;
-  margin-top: 2px;
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 .docs-layout aside strong {
   display: block;
-  color: #e4e9ef;
+  color: #f0f3f7;
   font-family: "Cascadia Code", Consolas, monospace;
   font-size: 8px;
   letter-spacing: 0.08em;
@@ -2701,10 +2686,10 @@ button:focus-visible,
 
 .docs-layout aside span {
   display: block;
-  margin-top: 6px;
-  color: #9da7b1;
+  margin-top: 7px;
+  color: #aeb7c0;
   font-size: 10px;
-  line-height: 1.35;
+  line-height: 1.45;
 }
 
 .docs-layout section a {

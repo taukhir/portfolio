@@ -236,12 +236,94 @@
       line-height: 1.5;
     }
 
+    .demo-stats {
+      display: grid;
+      margin-top: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .demo-stats div {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .demo-stats span {
+      display: block;
+      color: var(--green);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .demo-stats strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
     .grid {
       display: grid;
       margin-top: 24px;
       grid-template-columns: minmax(0, 1fr) 360px;
       gap: 24px;
       align-items: start;
+    }
+
+    .flow-strip {
+      display: grid;
+      margin-top: 24px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(16, 23, 34, 0.58);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .flow-strip article {
+      position: relative;
+      padding: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .flow-strip article::after {
+      position: absolute;
+      right: -16px;
+      bottom: -22px;
+      width: 80px;
+      height: 80px;
+      border: 1px solid rgba(255, 107, 53, 0.18);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .flow-strip span {
+      color: var(--accent);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .flow-strip strong {
+      display: block;
+      margin-top: 18px;
+      font-size: 16px;
+      letter-spacing: -0.04em;
+    }
+
+    .flow-strip p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     .section-title {
@@ -281,9 +363,11 @@
     }
 
     .product-art {
+      position: relative;
       display: grid;
       height: 150px;
       place-items: center;
+      overflow: hidden;
       border-radius: 18px;
       background:
         linear-gradient(135deg, rgba(255, 107, 53, 0.78), rgba(142, 162, 255, 0.75)),
@@ -291,6 +375,16 @@
       font-size: 42px;
       font-weight: 900;
       letter-spacing: -0.08em;
+    }
+
+    .product-art::after {
+      position: absolute;
+      inset: auto -36px -42px auto;
+      width: 100px;
+      height: 100px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 50%;
+      content: "";
     }
 
     .card h3 {
@@ -436,6 +530,13 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.045);
+      transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+    }
+
+    .ops-tile:hover {
+      border-color: rgba(126, 226, 168, 0.32);
+      background: rgba(126, 226, 168, 0.06);
+      transform: translateY(-3px);
     }
 
     .ops-tile span {
@@ -557,6 +658,7 @@
       }
 
       .catalog,
+      .flow-strip,
       .ops-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -594,6 +696,7 @@
 
       .system-row,
       .catalog,
+      .flow-strip,
       .ops-grid,
       .order-row {
         grid-template-columns: 1fr;
@@ -628,6 +731,11 @@
             <a class="pill" href="https://github.com/taukhir/shopverse/tree/master/shopverse-web" target="_blank" rel="noopener noreferrer">Angular source</a>
             <a class="pill" href="https://github.com/taukhir/shopverse" target="_blank" rel="noopener noreferrer">Backend repo</a>
           </div>
+          <div class="demo-stats" aria-label="Static demo scope">
+            <div><span>6</span><strong>Seed products</strong></div>
+            <div><span>3</span><strong>Demo orders</strong></div>
+            <div><span>0</span><strong>Backend dependencies</strong></div>
+          </div>
         </div>
         <aside class="system-card" aria-label="Demo architecture summary">
           <div class="api-status">
@@ -647,9 +755,32 @@
           </div>
           <div class="system-row">
             <span>Backend</span>
-            <strong>Real project still maps to Spring Boot microservices, Kafka SAGA, outbox, and recovery flows.</strong>
+            <strong>Real project still maps to Spring Boot Microservices, Kafka SAGA, outbox, and recovery flows.</strong>
           </div>
         </aside>
+      </section>
+
+      <section class="flow-strip fade-in" aria-label="Demo journey">
+        <article>
+          <span>01</span>
+          <strong>Browse</strong>
+          <p>Catalog, stock state, product detail, and cart interactions are available immediately.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <strong>Checkout</strong>
+          <p>The flow shows validation, JWT/API handoff, and order creation checkpoints.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <strong>Operate</strong>
+          <p>Admin tiles expose order status, inventory alerts, payment retry, and DLT review.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <strong>Recover</strong>
+          <p>Recovery language mirrors the backend SAGA, outbox, and failed-event model.</p>
+        </article>
       </section>
 
       <section class="grid" id="catalog">
@@ -724,12 +855,12 @@
 
   <script>
     const products = [
-      { id: 101, name: "AstraBook Pro", type: "laptop", price: 82999, stock: 14, code: "AB" },
-      { id: 102, name: "PulsePods Max", type: "audio", price: 12999, stock: 32, code: "PP" },
-      { id: 103, name: "DockStation X", type: "accessory", price: 7999, stock: 8, code: "DX" },
-      { id: 104, name: "NovaBook Air", type: "laptop", price: 67999, stock: 11, code: "NB" },
-      { id: 105, name: "StudioMic USB", type: "audio", price: 5999, stock: 19, code: "SM" },
-      { id: 106, name: "SecureKey NFC", type: "accessory", price: 2499, stock: 42, code: "SK" }
+      { id: 101, name: "AstraBook Pro", type: "laptop", price: 82999, stock: 14, code: "AB", summary: "Premium work laptop with inventory state, pricing, and product-detail data served locally." },
+      { id: 102, name: "PulsePods Max", type: "audio", price: 12999, stock: 32, code: "PP", summary: "Audio product used to demonstrate category filtering, cart quantity updates, and checkout totals." },
+      { id: 103, name: "DockStation X", type: "accessory", price: 7999, stock: 8, code: "DX", summary: "Accessory SKU showing low-stock visibility and admin inventory-review signals." },
+      { id: 104, name: "NovaBook Air", type: "laptop", price: 67999, stock: 11, code: "NB", summary: "Lightweight laptop entry for storefront browsing and protected order creation flows." },
+      { id: 105, name: "StudioMic USB", type: "audio", price: 5999, stock: 19, code: "SM", summary: "Creator audio product included to make filter, catalog, and detail states feel realistic." },
+      { id: 106, name: "SecureKey NFC", type: "accessory", price: 2499, stock: 42, code: "SK", summary: "Security accessory representing auth-adjacent commerce use cases and account workflows." }
     ];
 
     const cart = new Map();
@@ -761,7 +892,7 @@
         <article class="card fade-in">
           <div class="product-art">${product.code}</div>
           <h3>${product.name}</h3>
-          <p>${product.type} item served from static fallback data for portfolio review.</p>
+          <p>${product.summary}</p>
           <div class="meta">
             <span class="price">${money(product.price)}</span>
             <span class="stock">${product.stock} in stock</span>

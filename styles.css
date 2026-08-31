@@ -1748,6 +1748,54 @@ button:focus-visible,
   object-fit: cover;
   object-position: top;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 260ms ease;
+}
+
+.proof-shot-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.proof-shot-link::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: 0;
+  background:
+    linear-gradient(180deg, transparent 42%, rgba(8, 11, 24, 0.78));
+  transition: opacity 180ms ease;
+}
+
+.proof-shot-link span {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1;
+  padding: 8px 10px;
+  color: var(--white);
+  background: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  transform: translateY(7px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.proof-shot-link:hover img {
+  transform: scale(1.025);
+}
+
+.proof-shot-link:hover::after,
+.proof-shot-link:hover span {
+  opacity: 1;
+}
+
+.proof-shot-link:hover span {
+  transform: translateY(0);
 }
 
 .proof-shots figcaption {
@@ -2621,7 +2669,7 @@ button:focus-visible,
 }
 
 .docs-layout aside i,
-.docs-layout section span {
+.docs-layout section a {
   display: inline-flex;
   padding: 7px 8px;
   align-items: center;
@@ -2633,6 +2681,14 @@ button:focus-visible,
   font-style: normal;
   font-weight: 800;
   text-transform: uppercase;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.docs-layout section a:hover {
+  color: var(--white);
+  border-color: rgba(var(--accent-rgb), 0.5);
+  background: rgba(var(--accent-rgb), 0.12);
+  transform: translateY(-2px);
 }
 
 .docs-layout section {

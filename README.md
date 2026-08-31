@@ -4,15 +4,16 @@
 [![Deploy portfolio to GitHub Pages](https://github.com/taukhir/portfolio/actions/workflows/pages.yml/badge.svg)](https://github.com/taukhir/portfolio/actions/workflows/pages.yml)
 
 A responsive engineering portfolio for **Tauqeer Ahmed**, a Lead Backend
-Engineer specializing in Java, Spring Boot, microservices, Kafka, Kubernetes,
+Engineer specializing in Java, Spring Boot, Microservices, Kafka, Kubernetes,
 cloud platforms, and enterprise system design.
 
 The site presents:
 
 - Professional summary and engineering impact
 - Career experience across Nagarro, HCLTech, Morgan Stanley, Optum, and Tecnotree
-- ShopVerse microservices architecture and project details
+- ShopVerse Microservices architecture and project details
 - ShopVerse Web Angular frontend project details
+- Live ShopVerse documentation and static demo links
 - Updated resume PDF and editable DOCX without vendor template branding
 - Backend, cloud, data, observability, quality, and leadership skills
 - Engineering principles, working style, resume, and contact links
@@ -20,6 +21,10 @@ The site presents:
 ## Live Site
 
 **Portfolio:** [https://taukhir.github.io/portfolio/](https://taukhir.github.io/portfolio/)
+
+**Live engineering docs:** [https://taukhir.github.io/shopverse/](https://taukhir.github.io/shopverse/)
+
+**Static ShopVerse demo:** [https://taukhir.github.io/portfolio/shopverse-demo.html](https://taukhir.github.io/portfolio/shopverse-demo.html)
 
 ## How the Portfolio Works
 
@@ -51,7 +56,9 @@ required. GitHub Pages serves the repository files directly over HTTPS.
 
 | Project | What the portfolio shows |
 | --- | --- |
-| [ShopVerse](https://github.com/taukhir/shopverse) | Java/Spring microservices architecture, Kafka choreography SAGA, security, observability, CI, Docker, and documented trade-offs |
+| [ShopVerse](https://github.com/taukhir/shopverse) | Java/Spring Microservices architecture, Kafka choreography SAGA, security, observability, CI, Docker, and documented trade-offs |
+| [ShopVerse Live Docs](https://taukhir.github.io/shopverse/) | Docusaurus knowledge base for architecture, reliability, security, operations, runbooks, and interview preparation |
+| [ShopVerse Static Demo](https://taukhir.github.io/portfolio/shopverse-demo.html) | Reviewable storefront, checkout, order, and admin flow when backend services are not running |
 | [ShopVerse Web](https://github.com/taukhir/shopverse/tree/master/shopverse-web) | Angular 22 commerce client with storefront, catalog, cart, checkout, orders, account, auth guards, HTTP interceptor, and admin operations screens |
 | Engineering Portfolio | This static GitHub Pages site, including responsive layout, accessibility, SEO, theme controls, recruiter narrative, and project storytelling |
 
@@ -178,7 +185,9 @@ Before publishing:
 ## Related Repositories
 
 - [GitHub profile repository](https://github.com/taukhir/taukhir)
-- [ShopVerse microservices platform](https://github.com/taukhir/shopverse)
+- [ShopVerse Microservices platform](https://github.com/taukhir/shopverse)
+- [ShopVerse live documentation](https://taukhir.github.io/shopverse/)
+- [ShopVerse static demo](https://taukhir.github.io/portfolio/shopverse-demo.html)
 - [ShopVerse Web Angular client](https://github.com/taukhir/shopverse/tree/master/shopverse-web)
 
 ## Contact

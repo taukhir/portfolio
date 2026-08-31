@@ -502,12 +502,12 @@
             <span>02</span>
             <span>Experience</span>
           </div>
-          <h2 class="section-title reveal">Building systems. Raising the engineering bar.</h2>
+          <h2 class="section-title reveal">Lead ownership across architecture, delivery, and production systems.</h2>
         </div>
         <p class="experience-intro reveal">
-          A progression from hands-on backend delivery to staff-level ownership:
-          architecture decisions, platform reliability, frontend modernization,
-          delivery leadership, and mentoring across enterprise domains.
+          7+ years across Java backend, full-stack modernization, platform
+          reliability, and enterprise POC delivery with a clear progression
+          from hands-on engineering to lead/staff-level ownership.
         </p>
       </div>
 
@@ -533,15 +533,15 @@
       <div class="experience-snapshot reveal" aria-label="Experience leadership snapshot">
         <article>
           <span>Architecture ownership</span>
-          <strong>Translate unclear business problems into service boundaries, API contracts, POCs, and implementation paths.</strong>
+          <strong>Turn unclear business problems into service boundaries, API contracts, architecture decisions, and reviewable POCs.</strong>
         </article>
         <article>
           <span>Delivery leadership</span>
-          <strong>Keep teams moving through reviews, mentoring, stakeholder alignment, release planning, and production readiness.</strong>
+          <strong>Drive delivery through technical planning, reviews, stakeholder alignment, release readiness, and mentoring.</strong>
         </article>
         <article>
-          <span>Engineering depth</span>
-          <strong>Stay hands-on with Java, Spring Boot, Angular, Kafka, Kubernetes, observability, and automation.</strong>
+          <span>Production engineering</span>
+          <strong>Stay hands-on with Java, Spring Boot, Angular, Kafka, Kubernetes, observability, automation, and secure delivery.</strong>
         </article>
       </div>
 
@@ -561,14 +561,15 @@
               <span class="role-domain">Enterprise POCs</span>
             </div>
             <p class="role-summary">
-              Lead enterprise POC discovery and delivery for clients including
-              AMWAY, converting early product ideas into scalable backend
-              prototypes, API boundaries, and implementation-ready architecture.
+              Lead enterprise POC discovery and solution delivery for clients
+              including AMWAY, shaping ambiguous product ideas into reviewable
+              architecture, API boundaries, and implementation-ready backend
+              systems.
             </p>
             <ul class="impact-list">
-              <li><strong>Architecture</strong><span>Lead feasibility studies and turn ambiguous requirements into reviewable solution directions.</span></li>
-              <li><strong>Delivery</strong><span>Own POCs from discovery and API design through stakeholder validation and engineering handoff.</span></li>
-              <li><strong>Engineering</strong><span>Build Spring Boot services for analytics, aggregation, workflow automation, and integration-heavy backend use cases.</span></li>
+              <li><strong>Architecture</strong><span>Own feasibility, service boundaries, API contracts, trade-off analysis, and implementation direction for enterprise POCs.</span></li>
+              <li><strong>Delivery</strong><span>Guide POCs from discovery through stakeholder validation, sprint execution, review, and engineering handoff.</span></li>
+              <li><strong>Engineering</strong><span>Build Spring Boot services for analytics, aggregation, workflow automation, ETL-style processing, and integration-heavy use cases.</span></li>
             </ul>
             <div class="role-stack" aria-label="Key technologies">
               <span>Java</span><span>Spring Boot</span><span>REST APIs</span><span>Solution Architecture</span>
@@ -591,14 +592,14 @@
               <span class="role-domain">Platform Engineering</span>
             </div>
             <p class="role-summary">
-              Strengthened TKGI platform reliability by improving observability,
+              Led improvements across TKGI platform reliability, observability,
               security posture, deployment confidence, and incident response
-              practices across engineering teams.
+              practices for enterprise Kubernetes teams.
             </p>
             <ul class="impact-list">
               <li><strong>Security</strong><span>Achieved a zero-critical-CVE production state through focused remediation.</span></li>
-              <li><strong>Observability</strong><span>Simplified platform monitoring by retiring legacy Wavefront integrations and improving operational visibility.</span></li>
-              <li><strong>Reliability</strong><span>Supported incident response, deployment optimization, production readiness, and engineer mentoring.</span></li>
+              <li><strong>Observability</strong><span>Improved operational visibility by simplifying monitoring, alerts, platform health checks, and legacy integration cleanup.</span></li>
+              <li><strong>Reliability</strong><span>Supported incident response, deployment optimization, production readiness, code reviews, and engineer mentoring.</span></li>
             </ul>
             <div class="role-stack" aria-label="Key technologies">
               <span>Kubernetes</span><span>TKGI</span><span>Observability</span><span>Security</span>
@@ -621,9 +622,9 @@
               <span class="role-domain">Platform Modernization</span>
             </div>
             <p class="role-summary">
-              Modernized the GRM platform across backend architecture, Angular
-              modules, release engineering, reporting automation, and developer
-              enablement for Morgan Stanley teams.
+              Modernized the GRM platform for Morgan Stanley teams across
+              backend architecture, Angular modules, reporting automation,
+              release engineering, and developer productivity.
             </p>
             <ul class="impact-list">
               <li><strong>Architecture</strong><span>Decomposed a legacy reporting monolith into 8+ Spring Boot Microservices with clearer service ownership.</span></li>
@@ -653,7 +654,7 @@
             <p class="role-summary">
               Built interoperable healthcare data workflows and real-time
               clinical processing services using FHIR, HL7, Kafka, and Spring
-              Boot with strong test coverage.
+              Boot with strong automation and quality discipline.
             </p>
             <ul class="impact-list">
               <li><strong>Quality</strong><span>Reduced manual QA dependency by approximately 30% through automation.</span></li>
@@ -682,8 +683,8 @@
             </div>
             <p class="role-summary">
               Engineered event-driven telecom billing services, resilient
-              workflow automation, recovery flows, and real-time operational
-              dashboards.
+              workflow automation, retry/recovery flows, and real-time
+              operational dashboards for high-volume transaction processing.
             </p>
             <ul class="impact-list">
               <li><strong>Scale</strong><span>Processed 10M+ monthly telecom billing transactions through Kafka-backed services.</span></li>
@@ -1202,10 +1203,22 @@ X-Correlation-Id: demo-checkout-9001
             </div>
             <div class="docs-layout">
               <aside>
-                <i>Architecture</i>
-                <i>Reliability</i>
-                <i>Security</i>
-                <i>Operations</i>
+                <article>
+                  <svg aria-hidden="true"><use href="#icon-architecture"></use></svg>
+                  <div><strong>Architecture</strong><span>Gateway, Eureka, Config Server, Microservices, ADRs</span></div>
+                </article>
+                <article>
+                  <svg aria-hidden="true"><use href="#icon-events"></use></svg>
+                  <div><strong>Reliability</strong><span>SAGA, Outbox, idempotency, retry, DLT, recovery</span></div>
+                </article>
+                <article>
+                  <svg aria-hidden="true"><use href="#icon-lock-check"></use></svg>
+                  <div><strong>Security</strong><span>JWT, JWKS, auth flow, ownership, protected routes</span></div>
+                </article>
+                <article>
+                  <svg aria-hidden="true"><use href="#icon-observe"></use></svg>
+                  <div><strong>Operations</strong><span>Docker, logs, metrics, traces, dashboards, runbooks</span></div>
+                </article>
               </aside>
               <section>
                 <small>ShopVerse Case Study</small>

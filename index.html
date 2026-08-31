@@ -706,6 +706,36 @@
           <a class="architecture-source" href="assets/shopverse-architecture-flow.svg" target="_blank" rel="noopener">
             Open diagram in a new tab
           </a>
+          <div class="architecture-proof" aria-label="ShopVerse architecture review path">
+            <article>
+              <svg aria-hidden="true"><use href="#icon-architecture"></use></svg>
+              <div>
+                <strong>Service boundaries</strong>
+                <span>Gateway, discovery, config, and owned databases</span>
+              </div>
+            </article>
+            <article>
+              <svg aria-hidden="true"><use href="#icon-events"></use></svg>
+              <div>
+                <strong>Event flow</strong>
+                <span>Kafka SAGA, outbox, compensation, and DLT audit</span>
+              </div>
+            </article>
+            <article>
+              <svg aria-hidden="true"><use href="#icon-lock-check"></use></svg>
+              <div>
+                <strong>Security path</strong>
+                <span>JWT, JWKS validation, ownership, and roles</span>
+              </div>
+            </article>
+            <article>
+              <svg aria-hidden="true"><use href="#icon-observe"></use></svg>
+              <div>
+                <strong>Ops evidence</strong>
+                <span>Metrics, logs, traces, dashboards, and runbooks</span>
+              </div>
+            </article>
+          </div>
         </div>
         <div class="project-details">
           <div class="project-index">Featured system / 01</div>

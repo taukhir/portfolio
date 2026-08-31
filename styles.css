@@ -1898,6 +1898,55 @@ button:focus-visible,
   color: var(--accent);
 }
 
+.architecture-proof {
+  display: grid;
+  margin-top: 22px;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.architecture-proof article {
+  display: grid;
+  min-height: 74px;
+  padding: 14px;
+  border: 1px solid rgba(11, 15, 27, 0.12);
+  background: rgba(255, 255, 255, 0.28);
+  gap: 10px;
+  grid-template-columns: 28px 1fr;
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    transform 220ms ease;
+}
+
+.architecture-proof article:hover {
+  border-color: rgba(123, 128, 255, 0.38);
+  background: rgba(255, 255, 255, 0.42);
+  transform: translateY(-2px);
+}
+
+.architecture-proof svg {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+}
+
+.architecture-proof strong {
+  display: block;
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.15;
+}
+
+.architecture-proof span {
+  display: block;
+  margin-top: 5px;
+  color: rgba(11, 15, 27, 0.62);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
 .project-details {
   padding: clamp(40px, 5vw, 72px);
 }
@@ -3470,6 +3519,10 @@ button:focus-visible,
     grid-template-columns: 1fr;
   }
 
+  .architecture-proof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .web-project .project-details,
   .portfolio-project .project-details,
   .docs-project .project-details {
@@ -4103,7 +4156,8 @@ button:focus-visible,
   }
 
   .why-hire-strip,
-  .project-impact {
+  .project-impact,
+  .architecture-proof {
     grid-template-columns: 1fr;
   }
 

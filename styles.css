@@ -79,7 +79,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-height) + 20px);
+  scroll-padding-top: calc(var(--header-height) + 44px);
 }
 
 body {
@@ -698,8 +698,32 @@ button:focus-visible,
   transition: transform 180ms ease, background 180ms ease, color 180ms ease;
 }
 
+.button::before,
+.project-links a::before,
+.contact-links a::before {
+  width: 6px;
+  height: 6px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  content: "";
+  flex: 0 0 auto;
+  opacity: 0.72;
+}
+
+.button span,
+.project-links a span,
+.architecture-source span {
+  transition: transform 180ms ease;
+}
+
 .button:hover {
   transform: translateY(-3px);
+}
+
+.button:hover span,
+.project-links a:hover span,
+.architecture-source:hover span {
+  transform: translate(3px, -2px);
 }
 
 .button-primary {
@@ -859,6 +883,7 @@ button:focus-visible,
 
 .section {
   max-width: var(--max-width);
+  scroll-margin-top: calc(var(--header-height) + 44px);
   margin: 0 auto;
   padding: 130px 24px;
 }
@@ -2125,10 +2150,10 @@ button:focus-visible,
   display: inline-flex;
   padding: 10px 12px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   color: var(--white);
   border: 1px solid var(--line-dark);
-  gap: 18px;
+  gap: 10px;
   font-size: 10px;
   font-weight: 700;
   transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
@@ -2532,13 +2557,13 @@ button:focus-visible,
 .docs-preview {
   display: grid;
   flex: 1 1 auto;
-  min-height: 470px;
+  min-height: 430px;
   padding: 20px;
   color: var(--white);
   background:
     linear-gradient(135deg, rgba(8, 13, 20, 0.98), rgba(25, 33, 44, 0.96)),
     var(--ink);
-  grid-template-rows: auto 1fr auto auto;
+  grid-template-rows: auto 1fr auto;
   gap: 14px;
 }
 
@@ -2582,15 +2607,16 @@ button:focus-visible,
 .docs-layout {
   display: grid;
   border: 1px solid var(--line-dark);
-  grid-template-columns: 0.34fr 0.66fr;
+  grid-template-columns: 1fr;
 }
 
 .docs-layout aside {
   display: grid;
   padding: 15px;
   align-content: start;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
-  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
   background: rgba(255, 255, 255, 0.025);
 }
 
@@ -2610,16 +2636,16 @@ button:focus-visible,
 }
 
 .docs-layout section {
-  padding: 24px;
+  padding: 22px;
 }
 
 .docs-layout section strong {
   display: block;
   max-width: 360px;
-  margin-top: 16px;
-  font-size: clamp(30px, 3.6vw, 48px);
+  margin-top: 14px;
+  font-size: clamp(28px, 3vw, 38px);
   letter-spacing: -0.06em;
-  line-height: 0.98;
+  line-height: 1.02;
 }
 
 .docs-layout section p {
@@ -2652,42 +2678,6 @@ button:focus-visible,
   font-family: "Cascadia Code", Consolas, monospace;
   font-size: 10px;
   font-weight: 600;
-}
-
-.docs-proof-grid {
-  display: grid;
-  margin-top: 2px;
-  gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.docs-proof-grid article {
-  min-height: 68px;
-  padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(135deg, rgba(var(--accent-rgb), 0.14), transparent 68%),
-    rgba(255, 255, 255, 0.045);
-}
-
-.docs-proof-grid span {
-  display: block;
-  color: var(--accent);
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-
-.docs-proof-grid strong {
-  display: block;
-  margin-top: 8px;
-  color: #c2cbd4;
-  font-family: "Cascadia Code", Consolas, monospace;
-  font-size: 8px;
-  line-height: 1.45;
-  text-transform: uppercase;
 }
 
 .preview-sidebar {
@@ -3139,6 +3129,29 @@ button:focus-visible,
   background: rgba(255, 255, 255, 0.055);
 }
 
+.skill-group.visible .skill-tags span {
+  animation: badgeReveal 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.skill-group.visible .skill-tags span:nth-child(2) { animation-delay: 55ms; }
+.skill-group.visible .skill-tags span:nth-child(3) { animation-delay: 110ms; }
+.skill-group.visible .skill-tags span:nth-child(4) { animation-delay: 165ms; }
+.skill-group.visible .skill-tags span:nth-child(5) { animation-delay: 220ms; }
+.skill-group.visible .skill-tags span:nth-child(6) { animation-delay: 275ms; }
+.skill-group.visible .skill-tags span:nth-child(7) { animation-delay: 330ms; }
+
+@keyframes badgeReveal {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .playbook {
   padding-top: 90px;
 }
@@ -3337,8 +3350,7 @@ button:focus-visible,
   border-bottom: 1px solid var(--line);
 }
 
-.value-card > span,
-.recommendation-note > div > span {
+.value-card > span {
   color: var(--accent);
   font-family: "Cascadia Code", Consolas, monospace;
   font-size: 9px;
@@ -3359,45 +3371,8 @@ button:focus-visible,
   font-size: 14px;
 }
 
-.recommendation-note {
-  display: grid;
-  margin-top: 28px;
-  padding: 30px;
-  align-items: center;
-  color: var(--white);
-  background: var(--ink);
-  grid-template-columns: 0.8fr 1.2fr auto;
-  gap: 40px;
-}
-
-.recommendation-note strong {
-  display: block;
-  margin-top: 8px;
-  font-family: var(--font-display);
-  font-size: 22px;
-}
-
-.recommendation-note p {
-  margin: 0;
-  color: #aab3bc;
-  font-size: 13px;
-}
-
-.recommendation-note a {
-  padding: 11px 13px;
-  border: 1px solid var(--line-dark);
-  font-size: 10px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.recommendation-note a:hover {
-  color: var(--ink);
-  border-color: var(--accent);
-  background: var(--accent);
-}
-
 .contact {
+  scroll-margin-top: calc(var(--header-height) + 44px);
   color: var(--ink);
   background: var(--accent);
 }
@@ -3728,9 +3703,6 @@ button:focus-visible,
     grid-template-columns: 1fr;
   }
 
-  .recommendation-note {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 900px) {
@@ -4221,11 +4193,6 @@ button:focus-visible,
     margin-top: 60px;
   }
 
-  .recommendation-note {
-    padding: 25px;
-    gap: 22px;
-  }
-
   .contact-inner {
     min-height: 650px;
     padding: 80px 20px;
@@ -4296,10 +4263,6 @@ button:focus-visible,
   .docs-preview {
     min-height: 0;
     padding: 16px;
-  }
-
-  .docs-proof-grid {
-    grid-template-columns: 1fr;
   }
 
   .docs-layout {

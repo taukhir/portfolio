@@ -663,6 +663,58 @@
       border-radius: 30px;
     }
 
+    .demo-footer {
+      display: flex;
+      margin-top: 28px;
+      padding: 24px 6px 8px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .demo-footer-brand .brand {
+      display: inline-block;
+      margin: 0;
+    }
+
+    .demo-footer-brand p {
+      max-width: 360px;
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .demo-footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .demo-footer-links a {
+      padding: 8px 10px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .demo-footer-links a:hover,
+    .demo-footer-links a:focus-visible {
+      color: var(--text);
+      border-color: rgba(255, 107, 53, 0.45);
+      background: var(--accent-soft);
+    }
+
+    .demo-footer-links span {
+      color: var(--accent);
+    }
+
     .ops-heading {
       display: flex;
       align-items: flex-start;
@@ -871,6 +923,16 @@
       .ops-heading {
         flex-direction: column;
       }
+
+      .demo-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .demo-footer-links {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
@@ -1041,6 +1103,19 @@
         </p>
       </section>
     </main>
+
+    <footer class="demo-footer">
+      <div class="demo-footer-brand">
+        <a class="brand" href="index.html">shop<span>verse</span></a>
+        <p>Static commerce proof by Tauqeer Ahmed · works without backend startup.</p>
+      </div>
+      <nav class="demo-footer-links" aria-label="ShopVerse demo links">
+        <a href="https://github.com/taukhir/shopverse" target="_blank" rel="noopener noreferrer">Backend source <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/taukhir/shopverse/tree/master/shopverse-web" target="_blank" rel="noopener noreferrer">Angular source <span aria-hidden="true">↗</span></a>
+        <a href="https://taukhir.github.io/shopverse/" target="_blank" rel="noopener noreferrer">Live docs <span aria-hidden="true">↗</span></a>
+        <a href="index.html">Portfolio <span aria-hidden="true">↗</span></a>
+      </nav>
+    </footer>
   </div>
 
   <dialog data-product-dialog>

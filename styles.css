@@ -699,8 +699,7 @@ button:focus-visible,
 }
 
 .button::before,
-.project-links a::before,
-.contact-links a::before {
+.project-links a::before {
   width: 6px;
   height: 6px;
   border: 1px solid currentColor;

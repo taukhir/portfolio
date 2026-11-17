@@ -213,6 +213,12 @@ button:focus-visible,
   font-weight: 600;
 }
 
+.site-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
 .site-nav a {
   position: relative;
   transition: color 180ms ease;
@@ -3851,6 +3857,14 @@ button:focus-visible,
     flex: 0 0 100%;
     margin-left: 0;
     display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .site-nav-links {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
     padding: 0 1px 3px;
     overflow-x: auto;
     overflow-y: hidden;
@@ -3861,7 +3875,7 @@ button:focus-visible,
     -webkit-overflow-scrolling: touch;
   }
 
-  .site-nav::-webkit-scrollbar {
+  .site-nav-links::-webkit-scrollbar {
     display: none;
   }
 
@@ -3893,7 +3907,9 @@ button:focus-visible,
   }
 
   .nav-cta {
+    flex: 0 0 auto;
     margin-top: 0;
+    margin-left: 0;
     color: #0b0f14 !important;
     border-color: transparent !important;
     background: var(--accent) !important;

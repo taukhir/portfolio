@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Page not found | Tauqeer Ahmed</title>
+  <link rel="canonical" href="https://taukhir.github.io/portfolio/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    try {
+      document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme") || "ember";
+      document.documentElement.dataset.font = localStorage.getItem("portfolio-font") || "modern";
+    } catch (error) {
+      document.documentElement.dataset.theme = "ember";
+      document.documentElement.dataset.font = "modern";
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .not-found {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 24px max(24px, calc((100vw - var(--max-width)) / 2));
+      color: var(--white);
+      background: var(--ink);
+    }
+    .not-found-code {
+      color: var(--accent);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .not-found h1 {
+      max-width: 720px;
+      margin: 18px 0 14px;
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 620;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+    .not-found p {
+      max-width: 540px;
+      margin: 0 0 28px;
+      color: #c7cdd6;
+      font-size: 17px;
+    }
+  </style>
+</head>
+<body>
+  <main class="not-found">
+    <span class="not-found-code">404 / page not found</span>
+    <h1>This path doesn’t lead anywhere in the system.</h1>
+    <p>The page you’re looking for may have moved. Head back to the homepage to explore the portfolio, experience, and work.</p>
+    <a class="button button-primary" href="/portfolio/">
+      Back to homepage
+      <span aria-hidden="true">↘</span>
+    </a>
+  </main>
+</body>
+</html>

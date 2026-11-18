@@ -458,6 +458,12 @@ button:focus-visible,
   align-items: center;
 }
 
+.hero-transition {
+  height: clamp(70px, 9vw, 130px);
+  background: linear-gradient(to bottom, var(--ink), var(--paper));
+  pointer-events: none;
+}
+
 .hero-grid {
   position: absolute;
   inset: 0;
@@ -665,28 +671,31 @@ button:focus-visible,
 .leadership-signals {
   display: flex;
   max-width: 720px;
-  margin-top: 25px;
-  gap: 8px;
+  margin-top: 24px;
+  padding-top: 22px;
+  gap: 10px 26px;
   flex-wrap: wrap;
+  border-top: 1px solid var(--line-dark);
 }
 
 .leadership-signals span {
   position: relative;
-  padding: 7px 10px 7px 22px;
-  color: #8e98a3;
-  border: 1px solid var(--line-dark);
-  font-family: "Cascadia Code", Consolas, monospace;
-  font-size: 8px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  padding-left: 17px;
+  color: #aab2bc;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .leadership-signals span::before {
   position: absolute;
   top: 50%;
-  left: 9px;
+  left: 0;
   width: 5px;
   height: 5px;
+  border-radius: 50%;
   background: var(--accent);
   content: "";
   transform: translateY(-50%);
@@ -1102,19 +1111,23 @@ button:focus-visible,
 
 .role-chip-list {
   display: flex;
-  gap: 7px;
   flex-wrap: wrap;
 }
 
 .role-chip-list span {
-  padding: 5px 7px;
   color: #f5f7f8;
-  border: 1px solid rgba(var(--accent-rgb), 0.35);
-  background: rgba(var(--accent-rgb), 0.12);
-  font-family: "Cascadia Code", Consolas, monospace;
-  font-size: 8px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.role-chip-list span:not(:last-child)::after {
+  margin: 0 3px;
+  color: var(--accent);
+  font-weight: 400;
+  content: "·";
 }
 
 .gcc-readiness {
